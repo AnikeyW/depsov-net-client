@@ -9,6 +9,7 @@ function App() {
   const { isLoading, placemarks } = useAppSelector(state => state.placemarkReducer)
 
   useEffect(() => {
+    dispatch(fetchPlacemarks())
     setInterval(() => {
       dispatch(fetchPlacemarks())
     }, 5000)
