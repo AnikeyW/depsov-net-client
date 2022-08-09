@@ -7,7 +7,8 @@ import { placemarkSlice } from "./PlacemarkSlice";
 export const fetchPlacemarks = () => async (dispatch: AppDispatch) => {
    try {
       dispatch(placemarkSlice.actions.placemarksFetching())
-      const response = await axios.get<IPlacemark[]>('http://localhost:5000/api/getplacemarks')
+      const response = await axios.get<IPlacemark[]>('api/getplacemarks')
+      // const response = await axios.get<IPlacemark[]>('http://localhost:5000/api/getplacemarks')
       dispatch(placemarkSlice.actions.placemarksFetchingSuccess(response.data))
    } catch (error) {
       console.error(error);
