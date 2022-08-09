@@ -7,8 +7,7 @@ import { placemarkSlice } from "./PlacemarkSlice";
 export const fetchPlacemarks = () => async (dispatch: AppDispatch) => {
    try {
       dispatch(placemarkSlice.actions.placemarksFetching())
-      const response = await axios.get<IPlacemark[]>('api/getplacemarks')
-      // const response = await axios.get<IPlacemark[]>('http://localhost:5000/api/getplacemarks')
+      const response = await axios.get<IPlacemark[]>('http://45.147.179.186:5000/api/getplacemarks')
       dispatch(placemarkSlice.actions.placemarksFetchingSuccess(response.data))
    } catch (error) {
       console.error(error);
@@ -27,7 +26,7 @@ interface IAddPlacemarkBody {
 export const addPlacemark = (body: IAddPlacemarkBody) => async (dispatch: AppDispatch) => {
    try {
       dispatch(placemarkSlice.actions.addPlacemarkRequest())
-      const response = await axios.post<IPlacemark[]>('http://localhost:5000/api/addplacemark', body)
+      const response = await axios.post<IPlacemark[]>('http://45.147.179.186:5000/api/addplacemark', body)
       dispatch(placemarkSlice.actions.addPlacemarkSuccess(response.data))
    } catch (error) {
       console.error(error);
